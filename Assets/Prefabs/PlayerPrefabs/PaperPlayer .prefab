@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5735365750728349855}
   m_Layer: 0
   m_Name: 'PaperPlayer '
-  m_TagString: PaperEnemy
+  m_TagString: Scizzors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2591a8bc8eebe624ead52bf4df74cea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 1
   speed: 5
 --- !u!61 &-2720156151806673693
 BoxCollider2D:

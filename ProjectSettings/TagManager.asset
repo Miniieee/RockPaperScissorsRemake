@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RockPlayer
-  - RockEnemy
-  - PaperEnemy
-  - ScizzorsEnemy
-  - PaperPlayer
-  - ScizzorsPlayer
+  - Rock
+  - Paper
+  - Scizzors
   layers:
   - Default
   - TransparentFX

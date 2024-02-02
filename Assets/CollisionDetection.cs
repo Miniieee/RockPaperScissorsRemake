@@ -7,9 +7,14 @@ public class CollisionDetection : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.gameObject.tag == "RockEnemy")
+        if (gameObject.tag == other.gameObject.tag)
         {
             other.GetComponent<Enemy>().DestroyGameobject();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            Debug.Log("died");
         }
         
     }
