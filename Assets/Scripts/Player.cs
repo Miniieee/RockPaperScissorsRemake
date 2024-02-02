@@ -19,11 +19,6 @@ public class Player : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
-
     public void ActivateRock()
     {   
         rockPlayer.SetActive(true);
@@ -45,4 +40,5 @@ public class Player : MonoBehaviour
         paperPlayer.SetActive(false);
         scissorPlayer.SetActive(true);
     }
+
 }
