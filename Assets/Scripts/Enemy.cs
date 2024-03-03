@@ -16,5 +16,14 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void SetSpeed(float _speed)
+    {
+        Debug.Log("it modified the speed");
+        speed = _speed;
+        
+        //check which player is enabled
+        
 
+        //trigger some animation
+    }
 }

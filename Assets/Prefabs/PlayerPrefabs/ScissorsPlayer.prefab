@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2167582406035171277}
   - component: {fileID: 7530478217496527372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -1082356023916968599}
   - component: {fileID: 8629932950861245255}
   - component: {fileID: 1191745711236804208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScissorsPlayer
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2591a8bc8eebe624ead52bf4df74cea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
   speed: 5
 --- !u!61 &8629932950861245255
 BoxCollider2D:

@@ -11,19 +11,22 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject scissorPlayer;
     
 
+    // try do it with an array
     void Start()
     {
-        rockPlayer.SetActive(true);
+        /*rockPlayer.SetActive(true);
         paperPlayer.SetActive(false);
         scissorPlayer.SetActive(false);
+        */
     }
 
-
+    /*
     public void ActivateRock()
     {   
         rockPlayer.SetActive(true);
         paperPlayer.SetActive(false);
         scissorPlayer.SetActive(false);
+
     }
 
     public void ActivatePaper()
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
         rockPlayer.SetActive(false);
         paperPlayer.SetActive(false);
         scissorPlayer.SetActive(true);
-    }
 
+    }
+    */
 }
