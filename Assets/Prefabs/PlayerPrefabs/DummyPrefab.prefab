@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 6160836363620000750}
   - component: {fileID: -193702196127217610}
   - component: {fileID: -8808245929293667807}
-  - component: {fileID: 2763083505489756813}
+  - component: {fileID: 8401659796465966977}
   m_Layer: 7
-  m_Name: RockPlayer
+  m_Name: DummyPrefab
   m_TagString: Paper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2763083505489756813
+--- !u!114 &8401659796465966977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,4 +207,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationPoint: {fileID: 0}
-  speed: 5
+  speed: 0

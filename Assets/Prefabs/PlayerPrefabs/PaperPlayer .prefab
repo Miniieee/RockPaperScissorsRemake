@@ -95,9 +95,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2494170605244101990}
-  - component: {fileID: 2557559787157110543}
   - component: {fileID: -2720156151806673693}
   - component: {fileID: 5735365750728349855}
+  - component: {fileID: 6558243622073600521}
   m_Layer: 7
   m_Name: 'PaperPlayer '
   m_TagString: Scizzors
@@ -121,19 +121,6 @@ Transform:
   - {fileID: 1459524201157927660}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2557559787157110543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8006186245033412709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2591a8bc8eebe624ead52bf4df74cea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!61 &-2720156151806673693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,3 +194,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6558243622073600521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006186245033412709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4526679d00e673045b3a588ea71c130f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationPoint: {fileID: 0}
+  speed: 5
