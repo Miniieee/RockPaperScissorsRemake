@@ -11,38 +11,25 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject scissorPlayer;
     
 
-    // try do it with an array
     void Start()
     {
-        /*rockPlayer.SetActive(true);
-        paperPlayer.SetActive(false);
-        scissorPlayer.SetActive(false);
-        */
+        
     }
-
-    /*
+/*
+    
     public void ActivateRock()
     {   
-        rockPlayer.SetActive(true);
-        paperPlayer.SetActive(false);
-        scissorPlayer.SetActive(false);
-
+        Instantiate(rockPlayer, transform.position, Quaternion.identity);
     }
 
     public void ActivatePaper()
     {
-        rockPlayer.SetActive(false);
-        paperPlayer.SetActive(true);
-        scissorPlayer.SetActive(false);
-        
+        Instantiate(paperPlayer, transform.position, Quaternion.identity);
     }
 
     public void ActivateScissors()
     {
-        rockPlayer.SetActive(false);
-        paperPlayer.SetActive(false);
-        scissorPlayer.SetActive(true);
-
-    }
-    */
+       Instantiate(scissorPlayer, transform.position, Quaternion.identity);
+    }*/
+    
 }

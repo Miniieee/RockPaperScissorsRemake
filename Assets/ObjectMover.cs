@@ -6,17 +6,25 @@ public class ObjectMover : MonoBehaviour
 {
     [SerializeField] Transform destinationPoint;
     [SerializeField] float speed;
-
+    [SerializeField] private bool isItEnemy;
     private bool isReachedDestination;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        destinationPoint = GameObject.FindGameObjectWithTag("EnemyDest").transform;
+
+        if (isItEnemy)
+        {
+            destinationPoint = GameObject.FindGameObjectWithTag("EnemyDest").transform;
+        }
+        else
+        {
+            destinationPoint = GameObject.FindGameObjectWithTag("PlayerDest").transform;
+        }
+    
         isReachedDestination = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, destinationPoint.transform.position,speed * Time.deltaTime);

@@ -5,19 +5,30 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [Header("Spawnable objects array")]
+    [Header("Enemy objects")]
     [SerializeField] private GameObject[] enemyObjects;
 
+    [Header("Shared Properties")]
     [SerializeField] private float spawnSpeed = 1f;
-
     [SerializeField] private int numberOfRounds;
     [SerializeField] private float timeOfShowingOrder;
 
+    [Header("SpawnPoints")]
+    [SerializeField] private Transform playerSpawnPoint;
+    [SerializeField] private Transform enemySpawnPoint;
+
+
     private List<GameObject> enemyOrder = new List<GameObject>();
+    
+    private List<GameObject> playerOrder = new List<GameObject>();
+
+    private int decreaseableNumberOfRounds;
+    private int numberOfPlayers;
 
     void Start()
     {
-        
+        decreaseableNumberOfRounds = numberOfRounds;
+        numberOfPlayers = 0;
         GenerateEnemyOrder();
     }
 
@@ -38,19 +49,45 @@ public class Spawner : MonoBehaviour
     private void WaitAmountOfSeconds()
     {
         //Debug.Log("waited 5 seconds");
-        StartCoroutine(EnemySpawner());
+        StartCoroutine(ObjectSpawner());
     }
 
-    IEnumerator EnemySpawner()
+    IEnumerator ObjectSpawner()
     {
-        
-        foreach (GameObject spawnedObjects in enemyOrder)
+        for (int i = 0; i < enemyOrder.Count; i++)
         {
-            Instantiate(spawnedObjects, transform.position, Quaternion.identity);
+            Instantiate(enemyOrder[i], enemySpawnPoint.position, Quaternion.identity);
+
+            if (numberOfPlayers > 0)
+            {
+                Instantiate(playerOrder[i], playerSpawnPoint.position, Quaternion.identity);
+                numberOfPlayers--;
+            }
+            else
+            {
+                Debug.Log("You haven't picked one");
+            }
             yield return new WaitForSeconds(spawnSpeed);
         }
 
-        enemyOrder.Clear();
+        numberOfPlayers = 0;
+        decreaseableNumberOfRounds = numberOfRounds;
 
+        enemyOrder.Clear();
+        playerOrder.Clear();
+    }
+
+    public void PlayerOrderInput(GameObject playerObject)
+    {
+        if (decreaseableNumberOfRounds > 0)
+        {
+            playerOrder.Add(playerObject);
+            decreaseableNumberOfRounds--;
+            numberOfPlayers++;
+        }
+        else
+        {
+            Debug.Log("reached the limit");
+        }
     }
 }

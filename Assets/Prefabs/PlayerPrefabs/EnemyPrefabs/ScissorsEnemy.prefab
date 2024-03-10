@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1191745711236804208}
   - component: {fileID: 4235108656766462186}
   m_Layer: 7
-  m_Name: ScissorsPlayer
+  m_Name: ScissorsEnemy
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,3 +208,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationPoint: {fileID: 0}
   speed: 5
+  isItEnemy: 1
