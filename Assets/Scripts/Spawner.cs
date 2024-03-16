@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
     [Header("Enemy objects")]
     [SerializeField] private GameObject[] enemyObjects;
+
+    [Header("Enmey Sprites")]
+    [SerializeField] Sprite[] enemyUiSprites;
+
+    [SerializeField] GameObject visualParent;
 
     [Header("Shared Properties")]
     [SerializeField] private float spawnSpeed = 1f;
@@ -17,33 +24,76 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private Transform enemySpawnPoint;
 
+    [Header("UI Elements")]
+    [SerializeField] TextMeshProUGUI timerText;
 
     private List<GameObject> enemyOrder = new List<GameObject>();
     
     private List<GameObject> playerOrder = new List<GameObject>();
 
+    private Image[] enemyVisualsUI;
+
+
     private int decreaseableNumberOfRounds;
     private int numberOfPlayers;
+
+    private bool isGenerated = false;
+    private float timerOfEnemySprites = 5f;
+
 
     void Start()
     {
         decreaseableNumberOfRounds = numberOfRounds;
         numberOfPlayers = 0;
+        ResetTimer();
+
         GenerateEnemyOrder();
+    }
+
+    private void Update() 
+    {
+        if (isGenerated)
+        {   
+            timerOfEnemySprites -= Time.deltaTime;
+
+            timerText.text = timerOfEnemySprites.ToString("0");
+
+            if (timerOfEnemySprites < Mathf.Epsilon)
+            {
+                isGenerated = false;
+                //hide panel
+                //show player panel
+            }
+        }
     }
 
     private void GenerateEnemyOrder()
     {
+        enemyVisualsUI = visualParent.GetComponentsInChildren<Image>();
+
+
         for (int i = 0; i < numberOfRounds; i++)
         {
             int generatedNum = 0;
             generatedNum = UnityEngine.Random.Range(0, 3);
 
             enemyOrder.Add(enemyObjects[generatedNum]);
+
+            enemyVisualsUI[i].sprite = enemyUiSprites[generatedNum];
         }
+
+        isGenerated = true;
+        ResetTimer();
 
         //Debug.Log(enemyOrder.Count);
         Invoke("WaitAmountOfSeconds", timeOfShowingOrder);
+
+        
+    }
+
+    private void ResetTimer()
+    {
+        timerOfEnemySprites = timeOfShowingOrder;
     }
 
     private void WaitAmountOfSeconds()
