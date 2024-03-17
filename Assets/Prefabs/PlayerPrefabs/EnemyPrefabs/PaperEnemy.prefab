@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 6558243622073600521}
   m_Layer: 7
   m_Name: PaperEnemy
-  m_TagString: Scizzors
+  m_TagString: EnemyPaper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,4 +210,3 @@ MonoBehaviour:
   destinationPoint: {fileID: 0}
   speed: 5
   isItEnemy: 1
-  enemyIndex: 1

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,9 +10,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyObjects;
 
     [Header("Enmey Sprites")]
-    [SerializeField] Sprite[] enemyUiSprites;
+    [SerializeField] private Sprite[] enemyUiSprites;
 
-    [SerializeField] GameObject visualParent;
+    [SerializeField] private GameObject visualParent;
+    [SerializeField] private GameObject canvasToHide;
 
     [Header("Shared Properties")]
     [SerializeField] private float spawnSpeed = 1f;
@@ -61,7 +61,7 @@ public class Spawner : MonoBehaviour
             if (timerOfEnemySprites < Mathf.Epsilon)
             {
                 isGenerated = false;
-                //hide panel
+                canvasToHide.SetActive(false);
                 //show player panel
             }
         }
@@ -85,7 +85,6 @@ public class Spawner : MonoBehaviour
         isGenerated = true;
         ResetTimer();
 
-        //Debug.Log(enemyOrder.Count);
         Invoke("WaitAmountOfSeconds", timeOfShowingOrder);
 
         
@@ -98,7 +97,6 @@ public class Spawner : MonoBehaviour
 
     private void WaitAmountOfSeconds()
     {
-        //Debug.Log("waited 5 seconds");
         StartCoroutine(ObjectSpawner());
     }
 

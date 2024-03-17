@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4235108656766462186}
   m_Layer: 7
   m_Name: ScissorsEnemy
-  m_TagString: Rock
+  m_TagString: EnemyScizzors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,4 +210,3 @@ MonoBehaviour:
   destinationPoint: {fileID: 0}
   speed: 5
   isItEnemy: 1
-  enemyIndex: 2

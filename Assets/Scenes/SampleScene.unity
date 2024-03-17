@@ -1070,6 +1070,7 @@ MonoBehaviour:
   - {fileID: -1469909079130451432, guid: 3880bf1dc7fed1141829233292b0310b, type: 3}
   - {fileID: -5943204945193697474, guid: 7c0308c9d95d9f241b2bd61c6ae3c83a, type: 3}
   visualParent: {fileID: 1370177618}
+  canvasToHide: {fileID: 201760908}
   spawnSpeed: 2
   numberOfRounds: 5
   timeOfShowingOrder: 5
@@ -1366,7 +1367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.4449463, y: -0.00012207031}
+  m_AnchoredPosition: {x: 2.4448242, y: 0}
   m_SizeDelta: {x: -904.6345, y: -1095.3414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370177620
