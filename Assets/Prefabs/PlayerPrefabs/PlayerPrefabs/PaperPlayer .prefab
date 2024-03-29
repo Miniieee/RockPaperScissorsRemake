@@ -163,3 +163,4 @@ MonoBehaviour:
   destinationPoint: {fileID: 0}
   speed: 5
   isItEnemy: 0
+  index: 1

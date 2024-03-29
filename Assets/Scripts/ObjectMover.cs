@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectMover : MonoBehaviour
 {
     [SerializeField] Transform destinationPoint;
     [SerializeField] float speed;
     [SerializeField] private bool isItEnemy;
+
     private bool isReachedDestination;
+
+    public int index;
 
     void Start()
     {

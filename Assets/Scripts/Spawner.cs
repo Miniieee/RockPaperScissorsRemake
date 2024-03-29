@@ -10,9 +10,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyObjects;
 
     [Header("Enmey Sprites")]
-    [SerializeField] private Sprite[] enemyUiSprites;
+    [SerializeField] private Sprite[] uISprites;
 
-    [SerializeField] private GameObject visualParent;
+    [SerializeField] private GameObject enemyVisualParent;
+    [SerializeField] private GameObject playerVisualParent;
     [SerializeField] private GameObject canvasToHide;
 
     [Header("Shared Properties")]
@@ -32,12 +33,14 @@ public class Spawner : MonoBehaviour
     private List<GameObject> playerOrder = new List<GameObject>();
 
     private Image[] enemyVisualsUI;
+    private Image[] playerVisualsUI;
 
 
     private int decreaseableNumberOfRounds;
     private int numberOfPlayers;
 
     private bool isGenerated = false;
+    private bool isPlayerCanSelect = true;
     private float timerOfEnemySprites = 5f;
 
 
@@ -62,6 +65,7 @@ public class Spawner : MonoBehaviour
             {
                 isGenerated = false;
                 canvasToHide.SetActive(false);
+                isPlayerCanSelect = false;
                 //show player panel
             }
         }
@@ -69,7 +73,13 @@ public class Spawner : MonoBehaviour
 
     private void GenerateEnemyOrder()
     {
-        enemyVisualsUI = visualParent.GetComponentsInChildren<Image>();
+        enemyVisualsUI = enemyVisualParent.GetComponentsInChildren<Image>();
+        playerVisualsUI = playerVisualParent.GetComponentsInChildren<Image>();
+
+        foreach (Image playerSprites in playerVisualsUI)
+        {
+            playerSprites.sprite = null;
+        }
 
 
         for (int i = 0; i < numberOfRounds; i++)
@@ -79,14 +89,15 @@ public class Spawner : MonoBehaviour
 
             enemyOrder.Add(enemyObjects[generatedNum]);
 
-            enemyVisualsUI[i].sprite = enemyUiSprites[generatedNum];
+            enemyVisualsUI[i].sprite = uISprites[generatedNum];
         }
 
         isGenerated = true;
+        isPlayerCanSelect = true;
+
         ResetTimer();
 
         Invoke("WaitAmountOfSeconds", timeOfShowingOrder);
-
         
     }
 
@@ -127,10 +138,14 @@ public class Spawner : MonoBehaviour
 
     public void PlayerOrderInput(GameObject playerObject)
     {
-        if (decreaseableNumberOfRounds > 0)
+        if (decreaseableNumberOfRounds > 0 && isPlayerCanSelect)
         {
             playerOrder.Add(playerObject);
             decreaseableNumberOfRounds--;
+            int index = playerObject.GetComponent<ObjectMover>().index;
+
+            playerVisualsUI[numberOfPlayers].sprite = uISprites[index];
+
             numberOfPlayers++;
         }
         else
