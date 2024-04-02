@@ -2992,6 +2992,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSlider: {fileID: 1729778747}
   enemySlider: {fileID: 779536280}
+  playerHealth: 2
+  enemyHealth: 2
+  highHealth: {r: 0.27557746, g: 0.764151, b: 0.13336597, a: 0}
+  midHealth: {r: 0.8396226, g: 0.7071329, b: 0.011881431, a: 0}
+  lowHealth: {r: 0.8679245, g: 0.16785331, b: 0.16785331, a: 0}
 --- !u!1 &2113181402
 GameObject:
   m_ObjectHideFlags: 0

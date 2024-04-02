@@ -43,9 +43,12 @@ public class Spawner : MonoBehaviour
     private bool isPlayerCanSelect = true;
     private float timerOfEnemySprites = 5f;
 
+    private Score score;
+
 
     void Start()
     {
+        score = FindFirstObjectByType<Score>();
         decreaseableNumberOfRounds = numberOfRounds;
         numberOfPlayers = 0;
         ResetTimer();
@@ -94,6 +97,7 @@ public class Spawner : MonoBehaviour
 
         isGenerated = true;
         isPlayerCanSelect = true;
+        canvasToHide.SetActive(true);
 
         ResetTimer();
 
@@ -125,6 +129,7 @@ public class Spawner : MonoBehaviour
             else
             {
                 Debug.Log("You haven't picked one");
+                score.LostRound();
             }
             yield return new WaitForSeconds(spawnSpeed);
         }
@@ -134,6 +139,8 @@ public class Spawner : MonoBehaviour
 
         enemyOrder.Clear();
         playerOrder.Clear();
+
+        Invoke("GenerateEnemyOrder", 3f);
     }
 
     public void PlayerOrderInput(GameObject playerObject)

@@ -13,6 +13,8 @@ public class ObjectMover : MonoBehaviour
 
     public int index;
 
+    private Score score;
+
     void Start()
     {
         if (isItEnemy)
@@ -25,6 +27,8 @@ public class ObjectMover : MonoBehaviour
         }
     
         isReachedDestination = false;
+
+        score = FindFirstObjectByType<Score>();
     }
 
     void Update()
@@ -102,6 +106,16 @@ public class ObjectMover : MonoBehaviour
                 }              
            }
 
+           if (isItEnemy)
+           {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left);
+
+                if (hit.collider.gameObject == null)
+                {
+                    Destroy(this.gameObject);
+                }
+           }
+
             //trigger an animation
         }
     }
@@ -109,6 +123,9 @@ public class ObjectMover : MonoBehaviour
     private void WonThisInstance(RaycastHit2D _hit)
     {
         Debug.Log("I've won");
+
+        score.WonRound();
+
         Destroy(_hit.collider.gameObject);
         Destroy(this.gameObject, 0.5f);
     }
@@ -117,6 +134,8 @@ public class ObjectMover : MonoBehaviour
     {
         Debug.Log("I've lost");
 
+        score.LostRound();
+
         Destroy(this.gameObject);
         Destroy(_hit.collider.gameObject, 0.5f);
     }
@@ -124,6 +143,8 @@ public class ObjectMover : MonoBehaviour
     private void DrawThisInstance(RaycastHit2D _hit)
     {
         Debug.Log("Draw");
+
+        score.DrawRound();
 
         Destroy(this.gameObject);
         Destroy(_hit.collider.gameObject);
